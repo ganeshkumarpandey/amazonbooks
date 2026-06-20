@@ -82,7 +82,6 @@
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 0;
-    padding-top: 80px;
   }
   .hero-text {
     padding: 8vh 5vw 8vh 10vw;
@@ -259,6 +258,66 @@
     font-family: 'Playfair Display', serif;
     font-size: clamp(1.8rem, 3vw, 2.6rem);
   }
+  /* ── MARQUEE SCROLL ── */
+  .marquee-section {
+    background: #050505;
+    padding: 1rem 0 1.2rem;
+    margin-top: 58px; /* fixed nav height */
+    overflow: hidden;
+    border-bottom: 1px solid #1A1A1A;
+  }
+  .marquee-label {
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 2rem;
+  }
+  .marquee-track {
+    display: flex;
+    gap: 1.4rem;
+    width: max-content;
+    animation: marquee-scroll 28s linear infinite;
+  }
+  .marquee-track:hover { animation-play-state: paused; }
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .marquee-card {
+    flex-shrink: 0;
+    width: 140px;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid #1E1E1E;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    display: block;
+  }
+  .marquee-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 16px 36px rgba(201,115,42,0.25);
+    border-color: var(--accent);
+  }
+  .marquee-card svg {
+    width: 100%;
+    display: block;
+    aspect-ratio: 2/3;
+  }
+  .marquee-card-label {
+    background: #111;
+    padding: 0.5rem 0.6rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: var(--accent-lt);
+    line-height: 1.3;
+    text-align: center;
+  }
+
   .books-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -524,6 +583,39 @@
   </ul>
 </nav>
 
+<!-- MARQUEE — first thing visitors see -->
+<section class="marquee-section">
+  <p class="marquee-label">All Books — Hover to Pause — Click to Buy</p>
+  <div style="overflow:hidden;">
+    <div class="marquee-track" id="marqueeTrack">
+      <a class="marquee-card" href="https://www.amazon.com/dp/B0H1QWP5HV" target="_blank" rel="noopener">
+        <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="300" fill="#1A1A2E"/><circle cx="30" cy="40" r="1.5" fill="#C9732A" opacity="0.5"/><circle cx="80" cy="20" r="1" fill="#C9732A" opacity="0.4"/><circle cx="150" cy="55" r="1.5" fill="#C9732A" opacity="0.3"/><circle cx="170" cy="15" r="1" fill="#C9732A" opacity="0.5"/><path d="M90 90 L90 130 L70 165 Q65 175 75 180 L125 180 Q135 175 130 165 L110 130 L110 90 Z" fill="none" stroke="#C9732A" stroke-width="1.5" opacity="0.7"/><line x1="85" y1="95" x2="115" y2="95" stroke="#C9732A" stroke-width="1" opacity="0.5"/><path d="M75 168 Q65 175 75 180 L125 180 Q135 175 125 168 Z" fill="#C9732A" opacity="0.3"/><text x="100" y="210" text-anchor="middle" font-family="Georgia,serif" font-size="9.5" font-weight="700" fill="#F7F3EC" letter-spacing="0.3">WHAT NOBODY</text><text x="100" y="223" text-anchor="middle" font-family="Georgia,serif" font-size="9.5" font-weight="700" fill="#F7F3EC" letter-spacing="0.3">TELLS YOU ABOUT</text><text x="100" y="236" text-anchor="middle" font-family="Georgia,serif" font-size="9.5" font-weight="700" fill="#C9732A" letter-spacing="0.3">GETTING A PHD</text><text x="100" y="260" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" fill="#8A8070" letter-spacing="1">RAJEEV RANJAN PANDEY</text></svg>
+        <div class="marquee-card-label">What Nobody Tells You About Getting a PhD</div>
+      </a>
+      <a class="marquee-card" href="https://www.amazon.com/dp/B0GXWX8294" target="_blank" rel="noopener">
+        <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="300" fill="#0D2137"/><line x1="0" y1="60" x2="200" y2="60" stroke="#1E4D6B" stroke-width="0.5"/><line x1="0" y1="120" x2="200" y2="120" stroke="#1E4D6B" stroke-width="0.5"/><line x1="0" y1="180" x2="200" y2="180" stroke="#1E4D6B" stroke-width="0.5"/><line x1="50" y1="0" x2="50" y2="200" stroke="#1E4D6B" stroke-width="0.5"/><line x1="100" y1="0" x2="100" y2="200" stroke="#1E4D6B" stroke-width="0.5"/><line x1="150" y1="0" x2="150" y2="200" stroke="#1E4D6B" stroke-width="0.5"/><circle cx="50" cy="60" r="3" fill="#3ABFEF" opacity="0.8"/><circle cx="100" cy="120" r="3" fill="#3ABFEF" opacity="0.8"/><circle cx="150" cy="60" r="3" fill="#3ABFEF" opacity="0.8"/><polyline points="50,60 100,60 100,120" fill="none" stroke="#3ABFEF" stroke-width="1.5" opacity="0.6"/><polyline points="150,60 150,90 100,90" fill="none" stroke="#3ABFEF" stroke-width="1.5" opacity="0.6"/><path d="M80 155 Q100 140 120 155" fill="none" stroke="#F2C27A" stroke-width="1.5" opacity="0.9"/><path d="M68 168 Q100 147 132 168" fill="none" stroke="#F2C27A" stroke-width="1.5" opacity="0.6"/><circle cx="100" cy="175" r="2.5" fill="#F2C27A" opacity="0.9"/><text x="100" y="210" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#3ABFEF" letter-spacing="1">HOW TECHNOLOGY</text><text x="100" y="224" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#F7F3EC" letter-spacing="1">ACTUALLY WORKS</text><text x="100" y="248" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" fill="#8A8070" letter-spacing="1">RAJEEV RANJAN PANDEY</text></svg>
+        <div class="marquee-card-label">How Technology Actually Works</div>
+      </a>
+      <a class="marquee-card" href="https://www.amazon.com/dp/B0GX2VK3SB" target="_blank" rel="noopener">
+        <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="300" fill="#111111"/><ellipse cx="85" cy="260" rx="10" ry="5" fill="#3A7D6E" opacity="0.9"/><ellipse cx="115" cy="240" rx="10" ry="5" fill="#3A7D6E" opacity="0.75"/><ellipse cx="85" cy="220" rx="10" ry="5" fill="#3A7D6E" opacity="0.6"/><ellipse cx="115" cy="200" rx="10" ry="5" fill="#3A7D6E" opacity="0.45"/><ellipse cx="85" cy="180" rx="10" ry="5" fill="#3A7D6E" opacity="0.3"/><ellipse cx="115" cy="160" rx="10" ry="5" fill="#3A7D6E" opacity="0.18"/><path d="M60 75 Q100 50 140 75 Q100 100 60 75 Z" fill="none" stroke="#3A7D6E" stroke-width="1.5" opacity="0.8"/><circle cx="100" cy="75" r="10" fill="none" stroke="#3A7D6E" stroke-width="1.5" opacity="0.8"/><circle cx="100" cy="75" r="4" fill="#3A7D6E" opacity="0.9"/><text x="100" y="130" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#3A7D6E" letter-spacing="0.5">DIGITAL</text><text x="100" y="144" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#F7F3EC" letter-spacing="0.5">FOOTPRINT</text><text x="100" y="163" text-anchor="middle" font-family="Arial,sans-serif" font-size="6.5" fill="#8A8070" letter-spacing="0.5">WHAT YOUR ONLINE ACTIVITY</text><text x="100" y="173" text-anchor="middle" font-family="Arial,sans-serif" font-size="6.5" fill="#8A8070" letter-spacing="0.5">CAN COST YOU</text><text x="100" y="290" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" fill="#555" letter-spacing="1">RAJEEV RANJAN PANDEY</text></svg>
+        <div class="marquee-card-label">Digital Footprint</div>
+      </a>
+      <a class="marquee-card" href="https://www.amazon.com/dp/B0GJ77NRBJ" target="_blank" rel="noopener">
+        <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="300" fill="#1C1040"/><circle cx="30" cy="25" r="1.2" fill="#FFE066"/><circle cx="75" cy="15" r="0.8" fill="#FFE066" opacity="0.7"/><circle cx="120" cy="30" r="1" fill="#FFE066" opacity="0.8"/><circle cx="170" cy="20" r="1.2" fill="#FFE066"/><path d="M100 65 Q80 65 75 85 Q72 100 82 112 L82 125 L118 125 L118 112 Q128 100 125 85 Q120 65 100 65 Z" fill="none" stroke="#FFE066" stroke-width="1.5" opacity="0.85"/><line x1="86" y1="128" x2="114" y2="128" stroke="#FFE066" stroke-width="1" opacity="0.6"/><circle cx="100" cy="95" r="4" fill="#FFE066" opacity="0.3"/><text x="100" y="160" text-anchor="middle" font-family="Georgia,serif" font-size="10" font-weight="700" fill="#FFE066" letter-spacing="0.5">THINK LIKE</text><text x="100" y="175" text-anchor="middle" font-family="Georgia,serif" font-size="14" font-weight="700" fill="#F7F3EC">EINSTEIN</text><text x="100" y="290" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" fill="#6050A0" letter-spacing="1">RAJEEV RANJAN PANDEY</text></svg>
+        <div class="marquee-card-label">Think Like Einstein</div>
+      </a>
+      <a class="marquee-card" href="https://www.amazon.com/dp/B0F7NLW2CK" target="_blank" rel="noopener">
+        <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="300" fill="#2A1A08"/><line x1="100" y1="110" x2="100" y2="60" stroke="#F2C27A" stroke-width="1" opacity="0.6"/><line x1="100" y1="110" x2="130" y2="68" stroke="#F2C27A" stroke-width="1" opacity="0.5"/><line x1="100" y1="110" x2="70" y2="68" stroke="#F2C27A" stroke-width="1" opacity="0.5"/><path d="M65 110 A35 35 0 0 1 135 110" fill="#F2C27A" opacity="0.9"/><path d="M70 110 A30 30 0 0 1 130 110" fill="#C9732A" opacity="0.7"/><path d="M55 130 L100 122 L145 130 L145 160 L100 152 L55 160 Z" fill="none" stroke="#F2C27A" stroke-width="1" opacity="0.7"/><line x1="100" y1="122" x2="100" y2="152" stroke="#F2C27A" stroke-width="1" opacity="0.7"/><text x="100" y="185" text-anchor="middle" font-family="Georgia,serif" font-size="8.5" font-weight="700" fill="#F2C27A" letter-spacing="0.5">365 DAYS OF</text><text x="100" y="198" text-anchor="middle" font-family="Georgia,serif" font-size="8.5" font-weight="700" fill="#F7F3EC" letter-spacing="0.5">MOTIVATIONAL QUOTES</text><text x="100" y="211" text-anchor="middle" font-family="Georgia,serif" font-size="8.5" font-weight="700" fill="#F2C27A" letter-spacing="0.5">WITH MEANING</text><text x="100" y="290" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" fill="#6A4020" letter-spacing="1">RAJEEV RANJAN PANDEY</text></svg>
+        <div class="marquee-card-label">365 Days of Motivational Quotes</div>
+      </a>
+      <a class="marquee-card" href="https://www.amazon.com/dp/B0DR9B8KMF" target="_blank" rel="noopener">
+        <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="300" fill="#1A0A00"/><path d="M40 180 Q38 160 50 155 Q45 145 55 140 Q52 130 62 128 Q58 118 70 120 Q65 108 78 112 Q75 102 85 105 Q82 130 78 140 Q88 132 85 145 Q92 138 90 152 Q96 145 92 158 Q95 152 93 165 Q96 160 93 172 L40 180 Z" fill="#E84A0A" opacity="0.9"/><path d="M48 178 Q47 162 57 158 Q53 150 61 147 Q58 138 67 140 Q64 130 73 133 Q71 148 68 155 Q76 149 74 160 Q80 154 78 165 Q81 160 79 172 L48 178 Z" fill="#F2A020" opacity="0.8"/><path d="M55 176 Q55 163 63 161 Q60 154 67 152 Q64 143 72 146 Q70 158 67 164 Q73 159 72 169 L55 176 Z" fill="#FFE066" opacity="0.7"/><path d="M200 80 Q160 80 140 120 Q120 160 100 170" fill="none" stroke="#3ABFEF" stroke-width="1" opacity="0.8"/><path d="M200 100 Q155 100 135 135 Q115 165 100 172" fill="none" stroke="#3ABFEF" stroke-width="1" opacity="0.6"/><circle cx="100" cy="170" r="2" fill="#3ABFEF" opacity="0.9"/><text x="100" y="210" text-anchor="middle" font-family="Georgia,serif" font-size="9" font-weight="700" fill="#E84A0A" letter-spacing="1">FROM FIRE TO</text><text x="100" y="225" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="700" fill="#F7F3EC" letter-spacing="0.5">FIBER OPTICS</text><text x="100" y="290" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" fill="#5A3010" letter-spacing="1">RAJEEV RANJAN PANDEY</text></svg>
+        <div class="marquee-card-label">From Fire to Fiber Optics</div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-text">
@@ -547,7 +639,7 @@
   <div>
     <p class="section-label">About the Author</p>
     <h2>Research, writing,<br>and the space between them</h2>
-    <p>Rajeev Ranjan Pandey a student at IIT Kharagpur, working at the intersection of electrical engineering, smart grid systems, and AI-driven power control. His research life the late nights, the failed experiments, the slow victories feeds directly into his writing.</p>
+    <p>Rajeev Ranjan Pandey is the pen name of a PhD researcher at IIT Kharagpur, working at the intersection of electrical engineering, smart grid systems, and AI-driven power control. His research life — the late nights, the failed experiments, the slow victories — feeds directly into his writing.</p>
     <p>He writes for the people who stay curious: students navigating academia, engineers who want to understand the invisible systems around them, and anyone chasing something difficult but meaningful. His books strip away jargon and get to the truth.</p>
     <div class="about-tags">
       <span class="tag">PhD Life</span>
@@ -902,6 +994,13 @@
 </footer>
 
 <script>
+  // Duplicate marquee cards for seamless infinite loop
+  const track = document.getElementById('marqueeTrack');
+  if (track) {
+    const clone = track.innerHTML;
+    track.innerHTML = clone + clone; // duplicate so loop is seamless
+  }
+
   // Simple newsletter interaction
   document.querySelector('.newsletter-form button').addEventListener('click', function() {
     const input = document.querySelector('.newsletter-form input');
