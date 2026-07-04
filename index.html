@@ -35,22 +35,6 @@ nav{
 .nav-links a:hover{color:var(--gold)}
 @media(max-width:600px){.nav-links{display:none}}
 
-/* MARQUEE */
-.marquee-wrap{
-  margin-top:54px;
-  background:#080808;
-  border-bottom:1px solid var(--border);
-  overflow:hidden;
-  padding:0.6rem 0;
-}
-.marquee-hint{text-align:center;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);padding:0.5rem 0 0.6rem}
-.marquee-track{display:flex;gap:1rem;width:max-content;animation:scroll 30s linear infinite}
-.marquee-track:hover{animation-play-state:paused}
-@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.m-card{flex-shrink:0;width:100px;text-decoration:none;display:block}
-.m-card img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:3px;border:1px solid var(--border);transition:transform 0.2s,box-shadow 0.2s}
-.m-card:hover img{transform:translateY(-4px);box-shadow:0 8px 24px rgba(201,115,42,0.3);border-color:var(--accent)}
-.m-card-title{font-size:0.62rem;color:var(--muted);text-align:center;margin-top:0.3rem;line-height:1.3;padding:0 0.1rem}
 
 /* HERO */
 .hero{
@@ -85,7 +69,7 @@ nav{
 .section-head{margin-bottom:2rem}
 .label{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem}
 .section-head h2{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:700}
-.divider{border:none;border-top:1px solid var(--border);margin:0}
+.divider{border:none;border-top:1px solid var(--border)}
 
 /* BOOKS GRID */
 .books-grid{
@@ -102,10 +86,8 @@ nav{
   border-radius:4px;
   overflow:hidden;
   display:flex;flex-direction:column;
-  transition:transform 0.2s,box-shadow 0.2s;
   text-decoration:none;
 }
-.book-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.5);border-color:var(--accent)}
 .book-card img{width:100%;aspect-ratio:2/3;object-fit:cover;display:block}
 .book-info{padding:0.9rem;flex:1;display:flex;flex-direction:column;gap:0.4rem}
 .book-cat{font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)}
@@ -117,9 +99,7 @@ nav{
   padding:0.5rem;
   font-size:0.75rem;font-weight:500;
   text-decoration:none;
-  transition:background 0.2s;
 }
-.book-btn:hover{background:var(--gold)}
 
 /* ABOUT */
 .about-grid{display:grid;grid-template-columns:2fr 1fr;gap:2rem;align-items:start}
@@ -158,16 +138,8 @@ footer{
   </ul>
 </nav>
 
-<!-- MARQUEE — auto-generated from books array -->
-<div class="marquee-wrap">
-  <p class="marquee-hint">All Books * Hover to Pause * Click to Buy</p>
-  <div style="overflow:hidden">
-    <div class="marquee-track" id="marqueeTrack"></div>
-  </div>
-</div>
-
 <!-- HERO -->
-<div style="border-bottom:1px solid var(--border)">
+<div style="border-bottom:1px solid var(--border);margin-top:54px">
 <div class="hero">
   <div>
     <p class="hero-eyebrow">Author &amp; Researcher</p>
@@ -214,7 +186,7 @@ footer{
       </div>
     </div>
     <div class="about-stats">
-      <div><div class="stat-num">6+</div><div class="stat-label">Published books on Amazon Kindle</div></div>
+      <div><div class="stat-num">8+</div><div class="stat-label">Published books on Amazon Kindle</div></div>
       <hr class="stat-div"/>
       <div><div class="stat-num">PhD</div><div class="stat-label">Researcher, IIT Kharagpur | Electrical Engineering &amp; Smart Grids</div></div>
       <hr class="stat-div"/>
@@ -241,46 +213,60 @@ footer{
 // ═══════════════════════════════════════════════
 const books = [
   {
-    title: "Scientific Titans: The Legacies That Defined Our World",
-    category: "Science History",
-    image: "images/book1.jpg",
-    link: "https://www.amazon.com/dp/B0DR9B8KMF",
-    desc: "How human curiosity rewired the world: science with struggle, innovation with emotion, genius as persistence rather than perfection."
+    title: "What Nobody Taught You — Book One: 30 Essential Truths About Money, Technology, and Health",
+    category: "Money, Tech & Health",
+    link: "https://www.amazon.com/dp/B0H71FTKDH",
+    image: "images/book8.jpg",
+    desc: "Your savings may be quietly losing value, your free apps are selling your behaviour, and most of what you believe about health was shaped by marketing, not science. Thirty short chapters, one practical takeaway each, on money, technology, and health nobody taught you at eighteen."
   },
   {
-    title: "365 Days of Motivational Quotes with Meaning",
-    category: "Motivation & Mindset",
-    image: "images/book2.jpg",
-    link: "https://www.amazon.com/dp/B0F7NLW2CK",
-    desc: "A daily companion: each day features a powerful quote, a clear explanation, and a message you can apply immediately."
+    title: "What Nobody Taught You — Book Two: 20 Essential Truths About Psychology, Society, and the Systems That Run Your World",
+    category: "Psychology & Society",
+    link: "https://www.amazon.com/dp/B0H7HNMMC1",
+    image: "images/book7.jpg",
+    desc: "Why smart people believe false things and how power actually works. Twenty short chapters on cognitive biases, persuasion, loneliness, and the systems shaping your beliefs without your awareness."
   },
   {
-    title: "Think Like a Scientist: STEM Legends for Kids",
-    category: "Children & Young Readers",
-    image: "images/book3.jpg",
-    link: "https://www.amazon.com/dp/B0GJ77NRBJ",
-    desc: "Stories of Einstein, Newton, and legendary inventors, explained simply for kids aged 8–14 to build logical and creative thinking."
+    title: "Still Here: What Nobody Tells You About the PhD",
+    category: "PhD & Academia",
+    link: "https://www.amazon.com/dp/B0H1QWP5HV",
+    image: "images/book6.jpg",
+    desc: "An unfiltered, deeply human look at PhD life,the late nights, impostor syndrome, failed experiments, and the strange beauty of caring about something difficult."
   },
   {
     title: "Digital Footprint: What Your Online Activity Can Cost You",
     category: "Digital Privacy",
-    image: "images/book4.jpg",
     link: "https://www.amazon.com/dp/B0GX2VK3SB",
+    image: "images/book4.jpg",
     desc: "Every search, click, and message leaves a trace. Systems track behavior, not intent. Learn how patterns are built and how to reduce your exposure."
   },
   {
     title: "The Science Behind Everyday Technology",
     category: "Technology Explained",
-    image: "images/book5.jpg",
     link: "https://www.amazon.com/dp/B0GXWX8294",
+    image: "images/book5.jpg",
     desc: "From smartphones and Wi-Fi to GPS and AI , a clear jargon-free breakdown of the invisible systems modern life runs on."
   },
   {
-    title: "Still Here: What Nobody Tells You About the PhD",
-    category: "PhD & Academia",
-    image: "images/book6.jpg",
-    link: "https://www.amazon.com/dp/B0H1QWP5HV",
-    desc: "An unfiltered, deeply human look at PhD life,the late nights, impostor syndrome, failed experiments, and the strange beauty of caring about something difficult."
+    title: "Scientific Titans: The Legacies That Defined Our World",
+    category: "Science History",
+    link: "https://www.amazon.com/dp/B0DR9B8KMF",
+    image: "images/book1.jpg",
+    desc: "How human curiosity rewired the world: science with struggle, innovation with emotion, genius as persistence rather than perfection."
+  },
+  {
+    title: "365 Days of Motivational Quotes with Meaning",
+    category: "Motivation & Mindset",
+    link: "https://www.amazon.com/dp/B0F7NLW2CK",
+    image: "images/book2.jpg",
+    desc: "A daily companion: each day features a powerful quote, a clear explanation, and a message you can apply immediately."
+  },
+  {
+    title: "Think Like a Scientist: STEM Legends for Kids",
+    category: "Children & Young Readers",
+    link: "https://www.amazon.com/dp/B0GJ77NRBJ",
+    image: "images/book3.jpg",
+    desc: "Stories of Einstein, Newton, and legendary inventors, explained simply for kids aged 8–14 to build logical and creative thinking."
   },
 ];
 
@@ -299,14 +285,6 @@ books.forEach(b => {
   </a>`;
 });
 
-// ── AUTO-BUILD MARQUEE ───────────────────────
-const track = document.getElementById('marqueeTrack');
-const marqueeHTML = books.map(b => `
-  <a class="m-card" href="${b.link}" target="_blank" rel="noopener">
-    <img src="${b.image}" alt="${b.title}" loading="lazy"/>
-    <p class="m-card-title">${b.title.split(':')[0]}</p>
-  </a>`).join('');
-track.innerHTML = marqueeHTML + marqueeHTML; // duplicate for seamless loop
 </script>
 
 </body>
